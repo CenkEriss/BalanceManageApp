@@ -15,7 +15,7 @@ namespace BalanceManageApp
     {
         SqlCommand command;
         SqlConnection connection;
-        SqlDataReader reader;
+        //SqlDataReader reader;
         SqlDataAdapter adapter;
 
         int userID = Form1.userID;
@@ -28,7 +28,7 @@ namespace BalanceManageApp
         {
             try
             {
-                connection = new SqlConnection("Data Source=SELIN\\SQLEXPRESS;Initial Catalog=BalanceManagementDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+                connection = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=BalanceManagementDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
                 command = new SqlCommand();
                 connection.Open();
                 command.Connection = connection;
@@ -63,13 +63,54 @@ namespace BalanceManageApp
                 this.Close();
                 loginMenu.Show();
             }
+       
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormCoupon couponMenu=new FormCoupon();
+            FormCoupon couponMenu = new FormCoupon();
             this.Hide();
             couponMenu.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=BalanceManagementDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+                command = new SqlCommand();
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = ("SELECT UserID,CashBalance,FlightBalance,RoadTollBalance,FoodBalance,FuelBalance From BalanceTable Where UserID='" + userID + "'");
+
+                adapter = new SqlDataAdapter(command);
+                DataSet dataset = new DataSet();
+
+                adapter.Fill(dataset);
+
+                dataGridView1.ReadOnly = true;
+                dataGridView1.DataSource = dataset.Tables[0];
+
+
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show("Something went wrong!", "Error");
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+           FormCouponCreate couponCreateMenu = new FormCouponCreate();
+            couponCreateMenu.Show();
+            this.Hide();
+           
         }
     }
 }

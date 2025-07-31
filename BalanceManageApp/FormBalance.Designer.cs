@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBalance));
             panel1 = new Panel();
+            button6 = new Button();
             button5 = new Button();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
@@ -44,6 +45,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button6);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(panel2);
@@ -51,6 +53,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(985, 758);
             panel1.TabIndex = 0;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.FromArgb(49, 121, 84);
+            button6.BackgroundImageLayout = ImageLayout.None;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button6.ForeColor = Color.White;
+            button6.ImageAlign = ContentAlignment.MiddleLeft;
+            button6.Location = new Point(327, 360);
+            button6.Name = "button6";
+            button6.Size = new Size(248, 45);
+            button6.TabIndex = 9;
+            button6.Text = "Get Balance Table";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
@@ -61,17 +80,19 @@
             button5.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
             button5.ForeColor = Color.White;
             button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(316, 539);
+            button5.Location = new Point(678, 360);
             button5.Name = "button5";
             button5.Size = new Size(248, 45);
             button5.TabIndex = 8;
             button5.Text = "Create Coupon";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.BackgroundColor = SystemColors.ActiveBorder;
+            dataGridView1.BackgroundColor = Color.FromArgb(49, 121, 84);
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(255, 0);
             dataGridView1.Name = "dataGridView1";
@@ -188,5 +209,6 @@
         private Button button4;
         private Button button5;
         private DataGridView dataGridView1;
+        private Button button6;
     }
 }

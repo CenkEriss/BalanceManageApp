@@ -38,9 +38,9 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            label5 = new Label();
             label4 = new Label();
             pictureBox1 = new PictureBox();
-            label5 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -90,6 +90,7 @@
             textBox2.Location = new Point(355, 250);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(433, 34);
             textBox2.TabIndex = 5;
             textBox2.UseSystemPasswordChar = true;
@@ -144,6 +145,18 @@
             panel2.Size = new Size(338, 449);
             panel2.TabIndex = 0;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.FromArgb(49, 121, 84);
+            label5.Font = new Font("Yu Gothic UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(85, 227);
+            label5.Name = "label5";
+            label5.Size = new Size(162, 38);
+            label5.TabIndex = 9;
+            label5.Text = "Application";
+            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -165,18 +178,6 @@
             pictureBox1.Size = new Size(150, 150);
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.FromArgb(49, 121, 84);
-            label5.Font = new Font("Yu Gothic UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(85, 227);
-            label5.Name = "label5";
-            label5.Size = new Size(162, 38);
-            label5.TabIndex = 9;
-            label5.Text = "Application";
             // 
             // Form1
             // 

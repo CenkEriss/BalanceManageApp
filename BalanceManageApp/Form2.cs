@@ -50,7 +50,7 @@ namespace BalanceManageApp
         {
             try
             {
-                connection = new Microsoft.Data.SqlClient.SqlConnection("Data Source=SELIN\\SQLEXPRESS;Initial Catalog=BalanceManagementDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+                connection = new Microsoft.Data.SqlClient.SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=BalanceManagementDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
                 command = new Microsoft.Data.SqlClient.SqlCommand();
                 connection.Open();
                 command.Connection = connection;
@@ -92,7 +92,7 @@ namespace BalanceManageApp
         private void button2_Click(object sender, EventArgs e)
         {
             FormBalance formBalance = new FormBalance();
-            this.Close();
+            this.Hide();
             formBalance.Show();
 
         }
@@ -115,7 +115,7 @@ namespace BalanceManageApp
 
 
             FormCoupon formCoupon = new FormCoupon();
-            this.Close();
+            this.Hide();
             formCoupon.Show();
         }
 
