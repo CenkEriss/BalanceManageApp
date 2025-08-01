@@ -20,6 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.CompilerServices;
 
 namespace BalanceManageApp
 {
@@ -29,14 +30,14 @@ namespace BalanceManageApp
         Microsoft.Data.SqlClient.SqlDataReader reader;
         Microsoft.Data.SqlClient.SqlConnection connection;
 
-        int userID=Form1.userID;
-    
+        int userID = Form1.userID;
+
         public void displayUsername()
         {
-            string loggedUser=Form1.username;
-            label13.Text=loggedUser;
+            string loggedUser = Form1.username;
+            label13.Text = loggedUser;
         }
-        
+
 
         public Form2()
         {
@@ -56,7 +57,8 @@ namespace BalanceManageApp
                 command.Connection = connection;
                 command.CommandText = ("Select * From BalanceTable where UserID='" + userID + "'");
                 reader = command.ExecuteReader();
-                if (reader.Read()) {
+                if (reader.Read())
+                {
                     decimal cashBalance = reader.GetDecimal(reader.GetOrdinal("CashBalance"));
                     label3.Text = cashBalance.ToString();
                     decimal fuelBalance = reader.GetDecimal(reader.GetOrdinal("FuelBalance"));
@@ -70,24 +72,25 @@ namespace BalanceManageApp
 
                 }
 
-                
+
             }
 
-            catch (Exception ex) {
-                MessageBox.Show("Something Unexpected Happened"+ex);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something Unexpected Happened" + ex);
             }
             finally
             {
-                
+
                 connection.Close();
             }
-            }
+        }
 
-        
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
-        // textBox1.Text = 
+
+            // textBox1.Text = 
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -106,7 +109,7 @@ namespace BalanceManageApp
                 this.Close();
                 formLogin.Show();
             }
-            else { }
+            else;
 
         }
 
@@ -114,9 +117,11 @@ namespace BalanceManageApp
         {
 
 
-            FormCoupon formCoupon = new FormCoupon();
+            FormCouponTable formCoupon = new FormCouponTable();
             this.Hide();
+
             formCoupon.Show();
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -130,6 +135,11 @@ namespace BalanceManageApp
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }

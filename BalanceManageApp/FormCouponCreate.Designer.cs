@@ -32,6 +32,8 @@
             textBox1 = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            button1 = new Button();
+            label3 = new Label();
             SuspendLayout();
             // 
             // button5
@@ -49,7 +51,7 @@
             button5.TabIndex = 9;
             button5.Text = "Create Coupon";
             button5.UseVisualStyleBackColor = false;
-            button5.Click += this.button5_Click;
+            button5.Click += button5_Click;
             // 
             // textBox1
             // 
@@ -74,17 +76,47 @@
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(244, 26);
+            label1.Location = new Point(241, 29);
             label1.Name = "label1";
             label1.Size = new Size(184, 22);
             label1.TabIndex = 12;
             label1.Text = "Your Cash Balance:";
+            label1.Click += label1_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ButtonFace;
+            button1.BackgroundImageLayout = ImageLayout.None;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button1.ForeColor = Color.White;
+            button1.Image = Properties.Resources.icons8_back_50;
+            button1.Location = new Point(12, 14);
+            button1.Name = "button1";
+            button1.Size = new Size(65, 51);
+            button1.TabIndex = 13;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Verdana", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label3.ForeColor = Color.ForestGreen;
+            label3.Location = new Point(425, 29);
+            label3.Name = "label3";
+            label3.Size = new Size(0, 22);
+            label3.TabIndex = 14;
             // 
             // FormCouponCreate
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ButtonFace;
+            ClientSize = new Size(832, 438);
+            Controls.Add(label3);
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(textBox1);
@@ -92,7 +124,7 @@
             Name = "FormCouponCreate";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CouponCreate";
-            Load += this.FormCouponCreate_Load;
+            Load += FormCouponCreate_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -103,5 +135,7 @@
         private TextBox textBox1;
         private Label label2;
         private Label label1;
+        private Button button1;
+        private Label label3;
     }
 }

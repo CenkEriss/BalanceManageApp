@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,26 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
-
 namespace BalanceManageApp
 {
-    public partial class FormBalance : Form
+    public partial class FormCouponTable : Form
     {
+
         SqlCommand command;
         SqlConnection connection;
         //SqlDataReader reader;
         SqlDataAdapter adapter;
-
-        int userID = Form1.userID;
-        public FormBalance()
+        int userID=Form1.userID;
+        public FormCouponTable()
         {
             InitializeComponent();
-        }
-
-        private void FormBalance_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,22 +31,23 @@ namespace BalanceManageApp
             mainMenu.Show();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormBalance formBalance = new FormBalance();
+            this.Hide();
+            formBalance.Show();
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
-            Form1 loginMenu = new Form1();
+            Form1 formLogin = new Form1();
+
             if (MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
-                loginMenu.Show();
+                formLogin.Show();
             }
-       
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FormCouponTable couponMenu = new FormCouponTable();
-            this.Hide();
-            couponMenu.Show();
+            else;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -62,7 +58,7 @@ namespace BalanceManageApp
                 command = new SqlCommand();
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = ("SELECT UserID,CashBalance,FlightBalance,RoadTollBalance,FoodBalance,FuelBalance From BalanceTable Where UserID='" + userID + "'");
+                command.CommandText = ("SELECT * From CouponTable Where UserID='"+userID+"'");
 
                 adapter = new SqlDataAdapter(command);
                 DataSet dataset = new DataSet();
@@ -79,19 +75,6 @@ namespace BalanceManageApp
             {
                 MessageBox.Show("Something went wrong!", "Error");
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-           FormCouponCreate couponCreateMenu = new FormCouponCreate();
-            couponCreateMenu.Show();
-            this.Hide();
-           
         }
     }
 }

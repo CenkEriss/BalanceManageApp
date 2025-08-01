@@ -53,12 +53,12 @@
             panel2 = new Panel();
             label13 = new Label();
             label12 = new Label();
-            button4 = new Button();
             button1 = new Button();
             button3 = new Button();
             button2 = new Button();
             label2 = new Label();
             pictureBox2 = new PictureBox();
+            button5 = new Button();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -293,9 +293,9 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 121, 84);
+            panel2.Controls.Add(button5);
             panel2.Controls.Add(label13);
             panel2.Controls.Add(label12);
-            panel2.Controls.Add(button4);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(button2);
@@ -325,23 +325,6 @@
             label12.Name = "label12";
             label12.Size = new Size(0, 26);
             label12.TabIndex = 13;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(49, 121, 84);
-            button4.BackgroundImageLayout = ImageLayout.None;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            button4.ForeColor = Color.White;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(6, 440);
-            button4.Name = "button4";
-            button4.Size = new Size(248, 45);
-            button4.TabIndex = 12;
-            button4.Text = "My Coupons";
-            button4.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -417,6 +400,23 @@
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
+            // button5
+            // 
+            button5.BackColor = Color.FromArgb(49, 121, 84);
+            button5.BackgroundImageLayout = ImageLayout.None;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button5.ForeColor = Color.White;
+            button5.Image = (Image)resources.GetObject("button5.Image");
+            button5.ImageAlign = ContentAlignment.MiddleLeft;
+            button5.Location = new Point(0, 439);
+            button5.Name = "button5";
+            button5.Size = new Size(251, 45);
+            button5.TabIndex = 15;
+            button5.Text = "Payment";
+            button5.UseVisualStyleBackColor = false;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -458,7 +458,6 @@
         private Button button2;
         private Button button3;
         private Button button1;
-        private Button button4;
         private Label label1;
         private PictureBox pictureBox1;
         private Label label3;
@@ -481,5 +480,6 @@
         private Panel panel3;
         private Label label12;
         private Label label13;
+        private Button button5;
     }
 }

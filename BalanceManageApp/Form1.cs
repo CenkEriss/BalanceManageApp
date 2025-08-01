@@ -40,13 +40,17 @@ namespace BalanceManageApp
                 command = new SqlCommand();
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = ("Select * From UserTable where Username='" + textBox1.Text + "' AND Password='" + textBox2.Text + " ' ");
+                command.CommandText = ("Select UserTable.ID,UserTable.Username,UserTable.Password,BalanceTable.CashBalance FROM UserTable INNER JOIN BalanceTable ON(UserTable.ID=BalanceTable.UserID) Where UserTable.Username='"+textBox1.Text+"'And UserTable.Password='"+textBox2.Text+"'"); 
+
+
+
                 reader = command.ExecuteReader();
 
                 if (reader.Read())
                 {
                     userID = reader.GetInt32(reader.GetOrdinal("ID"));
-                    username = textBox1.Text;
+                    username = reader.GetString(reader.GetOrdinal("Username"));
+                    cashBalance = reader.GetDecimal(reader.GetOrdinal("CashBalance"));
 
                     MessageBox.Show("Login Successful", "Congratulations");
 
@@ -77,6 +81,7 @@ namespace BalanceManageApp
         }
         public static int userID;
         public static string username;
+        public static decimal cashBalance;
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
         }
