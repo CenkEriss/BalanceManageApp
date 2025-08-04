@@ -34,6 +34,7 @@
             label1 = new Label();
             button1 = new Button();
             label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // button5
@@ -76,7 +77,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(241, 29);
+            label1.Location = new Point(284, 43);
             label1.Name = "label1";
             label1.Size = new Size(184, 22);
             label1.TabIndex = 12;
@@ -104,10 +105,21 @@
             label3.AutoSize = true;
             label3.Font = new Font("Verdana", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.ForestGreen;
-            label3.Location = new Point(425, 29);
+            label3.Location = new Point(468, 9);
             label3.Name = "label3";
             label3.Size = new Size(0, 22);
             label3.TabIndex = 14;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Verdana", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label4.ForeColor = SystemColors.ControlDarkDark;
+            label4.Location = new Point(468, 44);
+            label4.Name = "label4";
+            label4.Size = new Size(184, 22);
+            label4.TabIndex = 15;
+            label4.Text = "Your Cash Balance:";
             // 
             // FormCouponCreate
             // 
@@ -115,6 +127,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(832, 438);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -137,5 +150,6 @@
         private Label label1;
         private Button button1;
         private Label label3;
+        private Label label4;
     }
 }

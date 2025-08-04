@@ -12,6 +12,10 @@ namespace BalanceManageApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+            using (var loginForm = new Form1())
+            {
+                Application.Run(loginForm);  // App will exit when Form1 closes, unless we open Form2
+            }
         }
     }
 }

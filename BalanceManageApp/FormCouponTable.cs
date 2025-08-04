@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,17 @@ namespace BalanceManageApp
         SqlConnection connection;
         //SqlDataReader reader;
         SqlDataAdapter adapter;
-        int userID=Form1.userID;
+        int userID = Form1.userID;
         public FormCouponTable()
         {
+            Culture();
             InitializeComponent();
         }
-
+        private void Culture()
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 mainMenu = new Form2();
@@ -58,7 +64,7 @@ namespace BalanceManageApp
                 command = new SqlCommand();
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = ("SELECT * From CouponTable Where UserID='"+userID+"'");
+                command.CommandText = ("SELECT * From CouponTable Where UserID='" + userID + "'");
 
                 adapter = new SqlDataAdapter(command);
                 DataSet dataset = new DataSet();
@@ -75,6 +81,13 @@ namespace BalanceManageApp
             {
                 MessageBox.Show("Something went wrong!", "Error");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PaymentForm paymentForm = new PaymentForm();
+            this.Hide();
+            paymentForm.Show();
         }
     }
 }

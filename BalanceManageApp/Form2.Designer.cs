@@ -51,6 +51,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel2 = new Panel();
+            button5 = new Button();
             label13 = new Label();
             label12 = new Label();
             button1 = new Button();
@@ -58,7 +59,6 @@
             button2 = new Button();
             label2 = new Label();
             pictureBox2 = new PictureBox();
-            button5 = new Button();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -306,6 +306,24 @@
             panel2.Size = new Size(254, 759);
             panel2.TabIndex = 0;
             // 
+            // button5
+            // 
+            button5.BackColor = Color.FromArgb(49, 121, 84);
+            button5.BackgroundImageLayout = ImageLayout.None;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button5.ForeColor = Color.White;
+            button5.Image = (Image)resources.GetObject("button5.Image");
+            button5.ImageAlign = ContentAlignment.MiddleLeft;
+            button5.Location = new Point(0, 439);
+            button5.Name = "button5";
+            button5.Size = new Size(251, 45);
+            button5.TabIndex = 15;
+            button5.Text = "Payment";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
             // label13
             // 
             label13.AutoSize = true;
@@ -399,23 +417,6 @@
             pictureBox2.Size = new Size(96, 96);
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
-            // 
-            // button5
-            // 
-            button5.BackColor = Color.FromArgb(49, 121, 84);
-            button5.BackgroundImageLayout = ImageLayout.None;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            button5.ForeColor = Color.White;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(0, 439);
-            button5.Name = "button5";
-            button5.Size = new Size(251, 45);
-            button5.TabIndex = 15;
-            button5.Text = "Payment";
-            button5.UseVisualStyleBackColor = false;
             // 
             // Form2
             // 

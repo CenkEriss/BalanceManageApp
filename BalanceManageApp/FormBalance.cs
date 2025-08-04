@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
 
 namespace BalanceManageApp
 {
@@ -21,12 +22,18 @@ namespace BalanceManageApp
         int userID = Form1.userID;
         public FormBalance()
         {
+            Culture();
             InitializeComponent();
+            
         }
-
+        private void Culture()
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+        }
         private void FormBalance_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,7 +51,7 @@ namespace BalanceManageApp
                 this.Close();
                 loginMenu.Show();
             }
-       
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -88,10 +95,17 @@ namespace BalanceManageApp
 
         private void button5_Click(object sender, EventArgs e)
         {
-           FormCouponCreate couponCreateMenu = new FormCouponCreate();
+            FormCouponCreate couponCreateMenu = new FormCouponCreate();
             couponCreateMenu.Show();
             this.Hide();
-           
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PaymentForm paymentForm = new PaymentForm();
+            this.Hide();
+            paymentForm.Show();
         }
     }
 }

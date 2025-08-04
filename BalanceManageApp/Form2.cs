@@ -1,26 +1,27 @@
 ﻿using Azure.Identity;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Client;
 using System;
+using System;
+using System.Collections.Generic;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel;
 using System.Data;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.Linq;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.CompilerServices;
 
 namespace BalanceManageApp
 {
@@ -41,12 +42,17 @@ namespace BalanceManageApp
 
         public Form2()
         {
+            Culture();
             InitializeComponent();
             displayUsername();
-
+            
 
         }
-
+        private void Culture()
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+        }
         private void Form2_Load(object sender, EventArgs e)
         {
             try
@@ -61,6 +67,7 @@ namespace BalanceManageApp
                 {
                     decimal cashBalance = reader.GetDecimal(reader.GetOrdinal("CashBalance"));
                     label3.Text = cashBalance.ToString();
+                    Form2.cashBalance = cashBalance;
                     decimal fuelBalance = reader.GetDecimal(reader.GetOrdinal("FuelBalance"));
                     label4.Text = fuelBalance.ToString();
                     decimal flightBalance = reader.GetDecimal(reader.GetOrdinal("FlightBalance"));
@@ -85,6 +92,8 @@ namespace BalanceManageApp
                 connection.Close();
             }
         }
+        public static decimal foodBalance;
+        public static decimal cashBalance;
 
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -138,10 +147,11 @@ namespace BalanceManageApp
         {
 
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-
+            PaymentForm paymentForm = new PaymentForm();
+            this.Hide();
+            paymentForm.Show();
         }
     }
 }

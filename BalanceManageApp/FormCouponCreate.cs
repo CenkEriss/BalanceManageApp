@@ -31,20 +31,23 @@ namespace BalanceManageApp
 
         int userID = Form1.userID;
         //decimal cash = Form1.cashBalance;
-        decimal cash=Form1.cashBalance;
+        decimal cash=Form2.cashBalance;
 
         
         public FormCouponCreate()
         {
-            
+            Culture();
             InitializeComponent();
         }
-
-        public void FormCouponCreate_Load(object sender, EventArgs e)
+        private void Culture()
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
-            label3.Text = cash.ToString();
+        }
+        public void FormCouponCreate_Load(object sender, EventArgs e)
+        {
+            
+            label4.Text = cash.ToString();
             //try
             //{
             //    connection3 = new Microsoft.Data.SqlClient.SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=BalanceManagementDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
@@ -72,10 +75,7 @@ namespace BalanceManageApp
                 command = new Microsoft.Data.SqlClient.SqlCommand();
                 connection.Open();
                 command.Connection = connection;
-                //command2 = new Microsoft.Data.SqlClient.SqlCommand();
-                //command2.Connection = connection;
-                //command3 = new Microsoft.Data.SqlClient.SqlCommand();
-                //command3.Connection = connection;
+               
                 if (string.IsNullOrEmpty(textBox1.Text))
                 {
                     MessageBox.Show("Please type an amount", "Error");
@@ -109,7 +109,7 @@ namespace BalanceManageApp
 
                     command2.CommandText = ("UPDATE BalanceTable Set CashBalance=" + cash + "Where UserID='" + userID + "'");
                     command2.ExecuteNonQuery();
-                    label3.Text = cash.ToString();
+                    label4.Text = cash.ToString();
                     MessageBox.Show("Your Coupon Has Been Created Succesfully", "Congratulations", MessageBoxButtons.OK, MessageBoxIcon.None);
                     connection2.Close();
         

@@ -1,12 +1,15 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Client;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,12 +29,16 @@ namespace BalanceManageApp
 
         public Form1()
         {
-            
+            Culture();
             InitializeComponent();
             
         }
- 
-        
+
+        private void Culture()
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -40,23 +47,26 @@ namespace BalanceManageApp
                 command = new SqlCommand();
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = ("Select UserTable.ID,UserTable.Username,UserTable.Password,BalanceTable.CashBalance FROM UserTable INNER JOIN BalanceTable ON(UserTable.ID=BalanceTable.UserID) Where UserTable.Username='"+textBox1.Text+"'And UserTable.Password='"+textBox2.Text+"'"); 
+                command.CommandText = (" Select UserTable.ID,UserTable.Username,UserTable.Password,BalanceTable.CashBalance FROM UserTable INNER JOIN BalanceTable ON(UserTable.ID=BalanceTable.UserID) Where UserTable.Username COLLATE SQL_Latin1_General_CP1_CS_AS='"+textBox1.Text+"' AND  UserTable.Password Collate SQL_Latin1_General_CP1_CS_AS='"+textBox2.Text+"'");
 
-
+              
 
                 reader = command.ExecuteReader();
 
-                if (reader.Read())
+                if (reader.Read() )
                 {
                     userID = reader.GetInt32(reader.GetOrdinal("ID"));
                     username = reader.GetString(reader.GetOrdinal("Username"));
+                    password = reader.GetString(reader.GetOrdinal("Password"));
                     cashBalance = reader.GetDecimal(reader.GetOrdinal("CashBalance"));
-
                     MessageBox.Show("Login Successful", "Congratulations");
+                    
 
-                    Form2 Hub = new Form2();
-                    Hub.Show();
                     this.Hide();
+                    Form2 Hub=new Form2();
+                    Hub.Show();
+                    Hub.FormClosed += (s, args) => this.Close();
+                    
                 }
                 else
                     MessageBox.Show("Incorrect username or password", "Error");
@@ -79,6 +89,7 @@ namespace BalanceManageApp
                 connection.Close();
             }
         }
+        public static string password;
         public static int userID;
         public static string username;
         public static decimal cashBalance;
@@ -86,7 +97,7 @@ namespace BalanceManageApp
         {
         }
 
-  
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -100,6 +111,11 @@ namespace BalanceManageApp
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+   
         }
     }
 }

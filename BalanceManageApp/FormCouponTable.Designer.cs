@@ -104,6 +104,7 @@
             button3.TabIndex = 8;
             button3.Text = "Payment";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button1
             // 
