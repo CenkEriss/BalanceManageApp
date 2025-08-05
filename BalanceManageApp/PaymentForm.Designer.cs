@@ -55,12 +55,16 @@
             label10 = new Label();
             comboBox2 = new ComboBox();
             comboBox3 = new ComboBox();
+            comboBox4 = new ComboBox();
+            label11 = new Label();
+            button8 = new Button();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 121, 84);
+            panel2.Controls.Add(button8);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -356,11 +360,51 @@
             comboBox3.Size = new Size(101, 28);
             comboBox3.TabIndex = 30;
             // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "Garanti", "Akbank", "Ziraat", "Yapi Kredi" });
+            comboBox4.Location = new Point(404, 593);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(178, 28);
+            comboBox4.TabIndex = 31;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Sitka Banner", 16.1999989F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label11.ImageAlign = ContentAlignment.MiddleLeft;
+            label11.Location = new Point(321, 582);
+            label11.Name = "label11";
+            label11.Size = new Size(77, 39);
+            label11.TabIndex = 32;
+            label11.Text = "Bank:";
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.FromArgb(49, 121, 84);
+            button8.BackgroundImageLayout = ImageLayout.None;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button8.ForeColor = Color.White;
+            button8.Image = (Image)resources.GetObject("button8.Image");
+            button8.ImageAlign = ContentAlignment.MiddleLeft;
+            button8.Location = new Point(0, 510);
+            button8.Name = "button8";
+            button8.Size = new Size(258, 44);
+            button8.TabIndex = 33;
+            button8.Text = "Payment History";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
+            // 
             // PaymentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 759);
+            Controls.Add(label11);
+            Controls.Add(comboBox4);
             Controls.Add(comboBox3);
             Controls.Add(comboBox2);
             Controls.Add(textBox7);
@@ -421,5 +465,8 @@
         private Button button7;
         private ComboBox comboBox2;
         private ComboBox comboBox3;
+        private ComboBox comboBox4;
+        private Label label11;
+        private Button button8;
     }
 }

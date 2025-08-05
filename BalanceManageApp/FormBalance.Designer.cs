@@ -34,6 +34,7 @@
             button5 = new Button();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            button7 = new Button();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -103,6 +104,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 121, 84);
+            panel2.Controls.Add(button7);
             panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(button2);
@@ -111,6 +113,24 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(257, 759);
             panel2.TabIndex = 0;
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.FromArgb(49, 121, 84);
+            button7.BackgroundImageLayout = ImageLayout.None;
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button7.ForeColor = Color.White;
+            button7.Image = (Image)resources.GetObject("button7.Image");
+            button7.ImageAlign = ContentAlignment.MiddleLeft;
+            button7.Location = new Point(-1, 500);
+            button7.Name = "button7";
+            button7.Size = new Size(258, 44);
+            button7.TabIndex = 15;
+            button7.Text = "Payment History";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button4
             // 
@@ -176,7 +196,7 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(3, 280);
+            button1.Location = new Point(3, 294);
             button1.Name = "button1";
             button1.Size = new Size(248, 45);
             button1.TabIndex = 7;
@@ -211,5 +231,6 @@
         private Button button5;
         private DataGridView dataGridView1;
         private Button button6;
+        private Button button7;
     }
 }

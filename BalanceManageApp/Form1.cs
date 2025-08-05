@@ -31,7 +31,8 @@ namespace BalanceManageApp
         {
             Culture();
             InitializeComponent();
-            
+            textBox2.UseSystemPasswordChar = true;
+
         }
 
         private void Culture()
@@ -47,26 +48,26 @@ namespace BalanceManageApp
                 command = new SqlCommand();
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = (" Select UserTable.ID,UserTable.Username,UserTable.Password,BalanceTable.CashBalance FROM UserTable INNER JOIN BalanceTable ON(UserTable.ID=BalanceTable.UserID) Where UserTable.Username COLLATE SQL_Latin1_General_CP1_CS_AS='"+textBox1.Text+"' AND  UserTable.Password Collate SQL_Latin1_General_CP1_CS_AS='"+textBox2.Text+"'");
+                command.CommandText = (" Select UserTable.ID,UserTable.Username,UserTable.Password,BalanceTable.CashBalance FROM UserTable INNER JOIN BalanceTable ON(UserTable.ID=BalanceTable.UserID) Where UserTable.Username COLLATE SQL_Latin1_General_CP1_CS_AS='" + textBox1.Text + "' AND  UserTable.Password Collate SQL_Latin1_General_CP1_CS_AS='" + textBox2.Text + "'");
 
-              
+
 
                 reader = command.ExecuteReader();
 
-                if (reader.Read() )
+                if (reader.Read())
                 {
                     userID = reader.GetInt32(reader.GetOrdinal("ID"));
                     username = reader.GetString(reader.GetOrdinal("Username"));
                     password = reader.GetString(reader.GetOrdinal("Password"));
                     cashBalance = reader.GetDecimal(reader.GetOrdinal("CashBalance"));
                     MessageBox.Show("Login Successful", "Congratulations");
-                    
+
 
                     this.Hide();
-                    Form2 Hub=new Form2();
+                    Form2 Hub = new Form2();
                     Hub.Show();
                     Hub.FormClosed += (s, args) => this.Close();
-                    
+
                 }
                 else
                     MessageBox.Show("Incorrect username or password", "Error");
@@ -93,9 +94,6 @@ namespace BalanceManageApp
         public static int userID;
         public static string username;
         public static decimal cashBalance;
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-        }
 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -115,7 +113,31 @@ namespace BalanceManageApp
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-   
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBox2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBox2.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormRegister formRegister = new FormRegister();
+            this.Hide();
+            formRegister.ShowDialog();
         }
     }
 }

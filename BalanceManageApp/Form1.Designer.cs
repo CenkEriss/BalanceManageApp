@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
             checkBox1 = new CheckBox();
-            button1 = new Button();
             textBox2 = new TextBox();
+            button1 = new Button();
             textBox1 = new TextBox();
             label3 = new Label();
             label2 = new Label();
@@ -41,6 +41,7 @@
             label5 = new Label();
             label4 = new Label();
             pictureBox1 = new PictureBox();
+            button2 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -49,8 +50,8 @@
             // panel1
             // 
             panel1.Controls.Add(checkBox1);
-            panel1.Controls.Add(button1);
             panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
@@ -65,14 +66,21 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            checkBox1.Location = new Point(640, 290);
+            checkBox1.Location = new Point(656, 290);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(137, 21);
-            checkBox1.TabIndex = 7;
+            checkBox1.Size = new Size(132, 24);
+            checkBox1.TabIndex = 9;
             checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            checkBox1.Click += checkBox1_CheckedChanged;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(355, 250);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(433, 27);
+            textBox2.TabIndex = 8;
             // 
             // button1
             // 
@@ -84,17 +92,6 @@
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(355, 250);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(433, 34);
-            textBox2.TabIndex = 5;
-            textBox2.UseSystemPasswordChar = true;
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox1
             // 
@@ -138,6 +135,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 121, 84);
+            panel2.Controls.Add(button2);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(pictureBox1);
@@ -180,6 +178,18 @@
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
+            // button2
+            // 
+            button2.Font = new Font("Sitka Banner", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button2.ForeColor = Color.Black;
+            button2.Location = new Point(67, 337);
+            button2.Name = "button2";
+            button2.Size = new Size(190, 38);
+            button2.TabIndex = 10;
+            button2.Text = "Create An Account";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -189,6 +199,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -206,10 +217,11 @@
         private TextBox textBox1;
         private Label label3;
         private Button button1;
-        private TextBox textBox2;
         private PictureBox pictureBox1;
         private Label label4;
-        private CheckBox checkBox1;
         private Label label5;
+        private TextBox textBox2;
+        private CheckBox checkBox1;
+        private Button button2;
     }
 }

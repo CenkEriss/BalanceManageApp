@@ -89,10 +89,10 @@ namespace BalanceManageApp
                 {
                     string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                     Random random = new Random();
-                    int passLength = 10;
+                    int CouponLength = 10;
                     string CouponCode = "";
 
-                    for (int i = 0; i < passLength; i++)
+                    for (int i = 0; i < CouponLength; i++)
                     {
                         int index=random.Next(characters.Length);
                         CouponCode += characters[index];

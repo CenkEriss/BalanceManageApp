@@ -89,5 +89,12 @@ namespace BalanceManageApp
             this.Hide();
             paymentForm.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PaymentHistory paymentHistory = new PaymentHistory();
+            this.Hide();
+            paymentHistory.Show();
+        }
     }
 }

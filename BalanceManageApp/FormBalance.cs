@@ -24,7 +24,7 @@ namespace BalanceManageApp
         {
             Culture();
             InitializeComponent();
-            
+
         }
         private void Culture()
         {
@@ -106,6 +106,13 @@ namespace BalanceManageApp
             PaymentForm paymentForm = new PaymentForm();
             this.Hide();
             paymentForm.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            PaymentHistory history = new PaymentHistory();
+            this.Hide();
+            history.Show();
         }
     }
 }

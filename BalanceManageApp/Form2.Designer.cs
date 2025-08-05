@@ -51,6 +51,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel2 = new Panel();
+            button4 = new Button();
             button5 = new Button();
             label13 = new Label();
             label12 = new Label();
@@ -293,6 +294,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 121, 84);
+            panel2.Controls.Add(button4);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(label13);
             panel2.Controls.Add(label12);
@@ -305,6 +307,24 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(254, 759);
             panel2.TabIndex = 0;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(49, 121, 84);
+            button4.BackgroundImageLayout = ImageLayout.None;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button4.ForeColor = Color.White;
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(0, 512);
+            button4.Name = "button4";
+            button4.Size = new Size(258, 44);
+            button4.TabIndex = 15;
+            button4.Text = "Payment History";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -482,5 +502,6 @@
         private Label label12;
         private Label label13;
         private Button button5;
+        private Button button4;
     }
 }
